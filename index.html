@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+ 
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+ 
+    <title>Poke Dextr</title>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+      body, html{
+        height: 100vh;
+      }
+
+      #listing{
+        overflow-y: scroll;
+        max-height: 100%;
+      }
+      
+      aside, article{
+        max-height: 25vh;
+      }
+      
+      body {
+        padding-left: 300px;
+      }
+
+      nav{
+        height: 70px;
+        margin:0;
+      }
+
+      @media only screen and (max-width : 992px) {
+        body {
+          padding-left: 0;
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+      <ul id="listing" class="sidenav sidenav-fixed collection">
+
+        <!-- Begin List Template -->
+        <a href="#listing" id="bulbasaur" onclick="getPokemon('1')" class="collection-item">bulbasaur</a>
+        <!-- End List Template -->
+
+      </ul>
+
+      <nav class="teal nav-wrapper row" style="padding:10px; margin-bottom:0;">
+
+        <form onsubmit="event.preventDefault(); getMyPokemon()">
+            <div class="col s2">
+              <a href="#" data-target="listing" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+              
+            <div class="col input-field s4" >
+                <input placeholder="Student ID" style="border-radius:4px; color:white; background-color:#017c70" id="student_id" type="text">
+                <label for="student_id" style="color:white">Student ID</label>
+            </div>
+
+            <div class="col s5">
+              <button type="submit" class="waves-effect waves-light btn">Load PKMN</button>
+            </div>
+        </form> 
+        
+      </nav>
+    
+      <div class="row" style="height:100%; margin:0">
+          <article class="col s12 m6 l4" id="result" style="min-height:80%">
+
+            <!-- Begin Card Template -->
+            <div class="card">
+                <div class="card-image">
+                    <img class="teal" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="bulbasaur Image">  
+                </div>
+                <div class="card-content">
+                    <span class="card-title"><p>bulbasaur # 1</p></span>
+                    <p> Type1: grass</p>
+                    <p> Weight: 69</p>
+                    <p> Height: 7</p>
+                    <a onclick="catchPokemon(1)" id="catchBtn" style="position:absolute; right:15px; bottom:80px" class="btn-floating btn-large waves-effect waves-light red">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);font-size:40px; margin-top:8px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify" data-icon="mdi-pokeball" data-inline="false"><path fill="currentColor" d="M12 2a10 10 0 0 1 10 10a10 10 0 0 1-10 10A10 10 0 0 1 2 12A10 10 0 0 1 12 2m0 2c-4.08 0-7.45 3.05-7.94 7h4.07c.44-1.73 2.01-3 3.87-3c1.86 0 3.43 1.27 3.87 3h4.07c-.49-3.95-3.86-7-7.94-7m0 16c4.08 0 7.45-3.05 7.94-7h-4.07c-.44 1.73-2.01 3-3.87 3c-1.86 0-3.43-1.27-3.87-3H4.06c.49 3.95 3.86 7 7.94 7m0-10a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2Z"></path></svg>
+                    </a>
+                </div>
+            </div>
+            <!-- End Card Template -->
+
+          </article>
+
+          <article class="col s12 m6">
+              <table style="height:100%">
+                  <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Pokemon</th>
+                        <th>Action</th>
+                    </tr>
+                  </thead>
+      
+                  <tbody id="myPokeListing">
+
+                    <!-- Begin Table Row Template -->
+                    <tr>
+                      <td>rocky</td>
+                      <td>onix</td>
+                      <td>
+                        <button class="waves-effect waves-light btn" id="loadBtn" onclick="releasePokemon(5)">Release</button>
+                      </td>
+                    </tr>
+                    <!-- End Table Row Template -->
+
+                  </tbody>
+                </table>
+          </article> 
+      </div>
+
+    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="default.js"></script>
+    <script src="main.js"></script>
+
+  </body>
+</html>
